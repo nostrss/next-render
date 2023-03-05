@@ -3,24 +3,33 @@ import Head from 'next/head';
 export default function Detail({ detailData }) {
   return (
     <>
-      <Head>
-        <title>{detailData.title}</title>
-        <meta name='description' content={detailData.title} />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <main>
-        {detailData && (
-          <fieldset>
-            <legend>{detailData.title}</legend>
-            <img
-              src={`https://www.artic.edu/iiif/2/${detailData.image_id}/full/400,/0/default.jpg`}
-              alt={detailData.title}
+      {detailData === undefined ? (
+        <div>loading...</div>
+      ) : (
+        <>
+          <Head>
+            <title>{detailData?.title}</title>
+            <meta name='description' content={detailData?.title} />
+            <meta
+              name='viewport'
+              content='width=device-width, initial-scale=1'
             />
-            <li>history : {detailData.publication_history}</li>
-          </fieldset>
-        )}
-      </main>
+            <link rel='icon' href='/favicon.ico' />
+          </Head>
+          <main>
+            {detailData && (
+              <fieldset>
+                <legend>{detailData?.title}</legend>
+                <img
+                  src={`https://www.artic.edu/iiif/2/${detailData.image_id}/full/400,/0/default.jpg`}
+                  alt={detailData.title}
+                />
+                <li>history : {detailData.publication_history}</li>
+              </fieldset>
+            )}
+          </main>
+        </>
+      )}
     </>
   );
 }

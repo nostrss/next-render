@@ -9,22 +9,34 @@ export default function Home({ dataList }) {
 
   return (
     <>
-      <Head>
-        <title>Next.js Rendering Test</title>
-        <meta name='description' content='Next Server Sider Rendering Page' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <main>
-        {dataList?.map((item) => (
-          <fieldset key={item.id} onClick={onClickItem(item.id)}>
-            <legend>Artwork {item.id}</legend>
-            <ul>
-              <li>title : {item.title}</li>
-            </ul>
-          </fieldset>
-        ))}
-      </main>
+      {dataList === undefined ? (
+        <div>loading...</div>
+      ) : (
+        <>
+          <Head>
+            <title>Next.js Rendering Test</title>
+            <meta
+              name='description'
+              content='Next Server Sider Rendering Page'
+            />
+            <meta
+              name='viewport'
+              content='width=device-width, initial-scale=1'
+            />
+            <link rel='icon' href='/favicon.ico' />
+          </Head>
+          <main>
+            {dataList?.map((item) => (
+              <fieldset key={item.id} onClick={onClickItem(item.id)}>
+                <legend>Artwork {item.id}</legend>
+                <ul>
+                  <li>title : {item.title}</li>
+                </ul>
+              </fieldset>
+            ))}
+          </main>
+        </>
+      )}
     </>
   );
 }
