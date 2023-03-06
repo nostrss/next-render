@@ -26,8 +26,13 @@ export default function Home({ dataList }) {
             <link rel='icon' href='/favicon.ico' />
           </Head>
           <main>
+            <h1>This page is implemented with SSR</h1>
             {dataList?.map((item) => (
-              <fieldset key={item.id} onClick={onClickItem(item.id)}>
+              <fieldset
+                key={item.id}
+                onClick={onClickItem(item.id)}
+                style={{ cursor: 'pointer' }}
+              >
                 <legend>Artwork {item.id}</legend>
                 <ul>
                   <li>title : {item.title}</li>

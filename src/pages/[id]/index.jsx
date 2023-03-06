@@ -3,6 +3,7 @@ import Head from 'next/head';
 export default function Detail({ detailData }) {
   return (
     <>
+      <h1>This page is implemented with SSG.</h1>
       {detailData === undefined ? (
         <div>loading...</div>
       ) : (
